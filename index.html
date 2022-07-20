@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Background Generator</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <style type="text/css">
+         h1,h6{
+         text-align: center;
+         margin-top: 3%;
+         }
+         .color{
+         text-align: center;
+         margin-top: 3%;
+         }
+      </style>
+   </head>
+   <body id="gradient">
+      <h1 id="heading">Background Generator</h1>
+      <div class="color">
+         <input type="color" name="firstColor" id="firstColor">
+         <input type="color" name="secondColor" id="secondColor">
+      </div>
+      <h6 class="muted">Your current background </h6>
+      <script type="text/javaScript">
+         function getRandomColor() {
+          var letters = '0123456789ABCDEF';
+          var color = '#';
+          for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+         }
+         
+         var color1 = document.getElementById("firstColor");
+         var color2 = document.getElementById("secondColor");
+         var body = document.getElementById("gradient");
+         
+         color1.value=getRandomColor();
+         color2.value=getRandomColor();
+         
+         setGradient();
+         
+         function setGradient() {
+         body.style.background = 
+         "linear-gradient(to right, " 
+         + color1.value 
+         + ", " 
+         + color2.value 
+         + ")";
+         
+         }
+         
+         color1.addEventListener("input", setGradient);
+         
+         color2.addEventListener("input", setGradient);
+         
+            
+         
+         
+            
+            
+         
+            
+            
+          
+      </script>
+   </body>
+</html>
